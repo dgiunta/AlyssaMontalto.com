@@ -149,7 +149,8 @@ header {
 
 .container {
   width: 830px;
-  margin: 100px auto 0;
+  margin: 100px auto;
+  @include clearfix;
 }
 
 .body {
@@ -157,7 +158,7 @@ header {
 }
 
 .sidebar {
-  width: 145px;
+  width: 165px;
   float: left;
 }
 
@@ -258,6 +259,15 @@ header {
 /*body.piece .piece-detail { display: block; }*/
 /*body.home .thumbs { display: block; }*/
 /*body.contact .contact-page { display: block; }*/
+
+.piece-detail {
+  img {
+    display: block;
+    margin-bottom: 30px;
+    /*@include box-shadow(0 0 10px #ccc);*/
+    /*border: 1px solid white;*/
+  }
+}
 
 .piece-title {
   font-size: 11px;
