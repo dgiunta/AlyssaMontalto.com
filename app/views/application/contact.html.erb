@@ -1,0 +1,14 @@
+<div class="contact-page">
+  <h1 class="fancy"><%= Setting['contact.title'] %></h1>
+
+  <%=simple_format Setting['contact.intro'] %>
+
+  <section class="contact-info">
+    <h3 class="fancy">Contact <strong>Me</strong></h3>
+    <ul class="inline">
+      <li class="name">Alyssa Montalto</li>
+      <li class="phone"><%= Setting['contact.phone'] %></li>
+      <li class="email"><%= mail_to Setting['contact.email'] %></li>
+    </ul>
+  </section>
+</div>

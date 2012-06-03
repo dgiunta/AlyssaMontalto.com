@@ -1,0 +1,374 @@
+@import 'bourbon';
+
+@include font-face(Miso, '/fonts/miso-regular', normal);
+@include font-face(Miso, '/fonts/miso-bold', bold);
+@include font-face(Museo-Slab, '/fonts/museo-slab-300', normal);
+@include font-face(Museo-Slab, '/fonts/museo-slab-300-italic', normal, italic);
+@include font-face(Museo-Slab, '/fonts/museo-slab-500', bold);
+@include font-face(MarketingScript, '/fonts/marketingscript', normal);
+
+.serif { font-family: Museo-Slab, Rockwell, Times, serif; }
+.sans {
+  font-family: Miso, Helvetica, sans-serif;
+  letter-spacing: .05em;
+}
+.fancy { font-family: MarketingScript; }
+
+$yellow: #f1cf13;
+$nav-font-size: 17px;
+
+
+::-moz-selection { background: $yellow; color: #fff; text-shadow: none; }
+::selection { background: $yellow; color: #fff; text-shadow: none; }
+
+hr {
+  height: 0;
+  border: none;
+  border-bottom: 1px dotted black;
+  background: none;
+  margin: 12px 0;
+}
+
+a, a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $yellow;
+}
+
+.inline {
+  padding: 0;
+  margin: 0;
+
+  li {
+    list-style-type: none;
+    float: left;
+  }
+}
+
+.allcaps {
+  text-transform: uppercase;
+}
+
+body { @extend .serif; }
+nav { @extend .sans; }
+
+a {
+  @include transition(all .2s ease-in);
+}
+
+
+header {
+  @include clearfix;
+  position: relative;
+
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  position: relative;
+  margin: 39px 0 39px 20px;
+
+  &:before, &:after {
+    content: '';
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+
+  &:before {
+    height: 20px;
+    top: 10px;
+  }
+
+  &:after {
+    border-bottom: 0;
+    top: 20px;
+  }
+
+  .logo {
+    @include hide-text;
+    background: url(/images/alyssa_montalto_logo.png) no-repeat top left;
+    height: 118px;
+    width: 115px;
+    position: absolute;
+    overflow: hidden;
+    top: -35px;
+    padding: 0;
+    margin-left: -35px;
+  }
+
+  .inline {
+    float: right;
+  }
+
+  nav {
+    @include clearfix;
+    position: relative;
+    z-index: 10;
+
+    .nav-item {
+      font-size: $nav-font-size;
+      line-height: 20px;
+      padding: 10px 22px;
+      display: block;
+      float: left;
+      background: white;
+
+      &:hover, &.hover {
+        background: #ccc;
+        color: white;
+      }
+    }
+
+    .selected, .selected:hover, .selected.hover {
+      background: black;
+      color: white;
+    }
+
+    .resume {
+      border-left: 5px solid white;
+      margin: -3px 0;
+
+      .nav-item {
+        color: $yellow;
+        border-top: 3px solid $yellow;
+        border-bottom: 3px solid $yellow;
+
+        &:hover, &.hover {
+          background: $yellow;
+          color: white;
+        }
+      }
+
+    }
+  }
+}
+
+.container {
+  width: 830px;
+  margin: 100px auto 0;
+}
+
+.body {
+  margin-top: 100px;
+}
+
+.sidebar {
+  width: 145px;
+  float: left;
+}
+
+.main {
+  width: 620px;
+  float: right;
+}
+
+.thumbs {
+  img { display: block; width: 200px; }
+  li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background: darken($yellow, 20%);
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+  a {
+    display: block;
+
+    &:hover, &.hover {
+      @include transition(opacity .2s ease-in);
+      opacity: .3;
+    }
+  }
+}
+
+.portfolio-nav, .social {
+  list-style-type: none;
+  margin: 0 0 20px;
+  padding: 0;
+  font-size: $nav-font-size;
+
+  a {
+    display: block;
+    padding: 2px 10px;
+    margin-bottom: 10px;
+    margin-left: -10px;
+  }
+
+  li { margin: 0; }
+}
+
+.portfolio-nav {
+  a {
+    position: relative;
+
+    &.selected, &.selected:hover, &.selected.hover {
+      background: $yellow;
+      color: white;
+    }
+
+    &:after {
+      position: absolute;
+      content: ' ';
+      width: 37px;
+      height: 37px;
+      background: white;
+      right: -33px;
+      top: -7px;
+      @include border-radius(18px);
+      z-index: 100;
+    }
+
+    &:hover, &.hover {
+      background: #ccc;
+      color: white;
+    }
+
+  }
+}
+
+.nav-title {
+  text-transform: uppercase;
+  font-size: $nav-font-size;
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding-bottom: 13px;
+  border-bottom: 1px dotted black;
+  position: relative;
+
+  &:before {
+    border-bottom: 1px dotted black;
+    border-top: 1px dotted black;
+    height: 3px;
+    width: 100%;
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3px;
+  }
+}
+
+
+/*.thumbs, .piece-detail, .contact-page { display: none; }*/
+/*body.piece .piece-detail { display: block; }*/
+/*body.home .thumbs { display: block; }*/
+/*body.contact .contact-page { display: block; }*/
+
+.piece-title {
+  font-size: 11px;
+  margin: 0;
+}
+
+.piece-sub {
+  font-size: 10px;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0;
+}
+
+.piece-description {
+  width: 550px;
+  margin-bottom: 40px;
+}
+
+.piece-intro {
+  font-size: 11px;
+  line-height: 15px;
+  margin: 0;
+}
+
+.contact-page {
+  h1 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  p {
+    width: 550px;
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 0;
+  }
+}
+
+.contact-info {
+  margin-top: 40px;
+
+  h3 {
+    font-size: 27px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+
+    strong {
+      background: url(/images/yellow-burst.png) no-repeat top left;
+      height: 50px;
+      width: 51px;
+      color: white;
+      font-size: 22px;
+      padding: 10px;
+      margin-left: -10px;
+    }
+  }
+
+  ul {
+    display: inline-block;
+    vertical-align: middle;
+    @extend .sans;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+
+    li {
+      list-style-type: none;
+      margin: 0;
+      margin-left: 30px;
+      position: relative;
+
+      &:before {
+        content: '°';
+        color: $yellow;
+        font-size: 18px;
+        position: absolute;
+        left: -18px;
+        top: 4px;
+      }
+    }
+  }
+
+  .name {
+    font-weight: bold;
+    margin-left: 0;
+    &:before {
+      content: '';
+    }
+  }
+}
+
+.social {
+  margin-left: -3px;
+  margin-top: 30px;
+  a {
+    @include hide-text;
+    background: url(/images/social.gif) no-repeat top left;
+    height: 47px;
+    width: 47px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .facebook a {
+    background-position: top left;
+  }
+
+  .twitter a {
+    background-position: top right;
+  }
+}

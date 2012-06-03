@@ -1,0 +1,12 @@
+<div class="piece-detail">
+  <div class="piece-description">
+    <h2 class="piece-title"><%= @portfolio_piece.title %></h2>
+    <h3 class="piece-sub"><%= @portfolio_piece.subtitle %></h3>
+    <hr />
+    <p class="piece-intro"><%= @portfolio_piece.intro %></p>
+  </div>
+
+  <%- @portfolio_piece.images.each do |image_url| %>
+    <%= image_tag image_url %>
+  <%- end %>
+</div>

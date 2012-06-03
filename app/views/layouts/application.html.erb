@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>AlyssaMontaltoCom</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <a href="/" class="logo">Alyssa Montalto</a>
+
+          <ul class="inline allcaps">
+            <%- portfolio_piece = portfolio_piece_path(@portfolio_piece) if @portfolio_piece %>
+            <%- home_selected = [root_path, portfolio_pieces_path, portfolio_piece].compact.include?(request.path) ? 'selected' : '' %>
+            <%- contact_selected = request.path == contact_path ? 'selected' : '' %>
+            <li><%= link_to 'Home', root_path, :class => "nav-item #{home_selected}" %></li>
+            <li><%= link_to 'Contact', contact_path, :class => "nav-item #{contact_selected}" %></li>
+            <li class="resume"><%= link_to 'Resume', Setting.resume_url, :target => '_blank', :class => 'nav-item' %></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="body">
+        <aside class="sidebar">
+          <nav>
+            <h2 class="nav-title">Student Portfolio</h2>
+            <ul class="portfolio-nav">
+              <%- PortfolioPiece.all.each do |piece| %>
+                <%- selected = @portfolio_piece && @portfolio_piece == piece ? 'selected' : '' %>
+                <li><%= link_to piece.title, piece, :"data-piece" => piece.slug, :class => "hover-select #{selected}" %></li>
+              <%- end %>
+            </ul>
+
+            <ul class="social inline">
+              <li class="facebook"><a href="http://facebook.com/alyssamontalto">Facebook</a></li>
+              <li class="twitter"><a href="http://twitter.com/alyssamontalto">Twitter</a></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <section class="main">
+          <%= yield %>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
