@@ -11,3 +11,6 @@ END_INTRO
 
 Setting['contact.phone'] ||= '708.927.3933'
 Setting['contact.email'] ||= 'montalto.alyssa@gmail.com'
+
+Setting['social.facebook_url'] ||= 'https://www.facebook.com/alyssa.montalto.1'
+Setting['social.twitter_url'] ||= 'http://twitter.com/alyssamontalto'
