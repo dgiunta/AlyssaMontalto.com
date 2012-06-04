@@ -31,7 +31,7 @@
           <nav>
             <h2 class="nav-title">Student Portfolio</h2>
             <ul class="portfolio-nav">
-              <%- PortfolioPiece.all.each do |piece| %>
+              <%- PortfolioPiece.order('created_at asc').all.each do |piece| %>
                 <%- selected = @portfolio_piece && @portfolio_piece == piece ? 'selected' : '' %>
                 <li><%= link_to piece.title, piece, :"data-piece" => piece.slug, :class => "hover-select #{selected}" %></li>
               <%- end %>

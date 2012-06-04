@@ -172,7 +172,6 @@ header {
   li {
     margin-right: 10px;
     margin-bottom: 10px;
-    background: darken($yellow, 20%);
 
     &:nth-child(3n) {
       margin-right: 0;
@@ -264,8 +263,6 @@ header {
   img {
     display: block;
     margin-bottom: 30px;
-    /*@include box-shadow(0 0 10px #ccc);*/
-    /*border: 1px solid white;*/
   }
 }
 
