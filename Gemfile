@@ -5,7 +5,7 @@ gem 'pg'
 gem 'activeadmin'
 gem 'jquery-rails'
 gem 'bourbon'
-gem 'friendly_id'
+gem 'friendly_id', '~> 4.0.9'
 gem "rails-settings-cached"
 
 group :assets do
